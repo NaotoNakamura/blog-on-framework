@@ -44,11 +44,6 @@ abstract class Application {
 
   }
 
-  public function getRootDir()
-  {
-    return $this->rootDir;
-  }
-
   // 継承先でルーティング定義配列を設定
   abstract protected function registerRoutes();
 
@@ -79,22 +74,22 @@ abstract class Application {
 
   public function getControllerDir()
   {
-    return $this->getRootDir() . '/controllers';
+    return $this->rootDir . '/controllers';
   }
 
   public function getViewDir()
   {
-    return $this->getRootDir() . '/views';
+    return $this->rootDir . '/views';
   }
 
   public function getModeDir()
   {
-    return $this->getRootDir() . '/models';
+    return $this->rootDir . '/models';
   }
 
   public function getWebDir()
   {
-    return $this->getRootDir() . '/web';
+    return $this->rootDir . '/web';
   }
 
   public function run()
