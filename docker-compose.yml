@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./application:/var/www/html
+      - ./infra/nginx/default.conf:/etc/nginx/conf.d/default.conf
+
+  php:
+    build: ./infra/php
+    volumes:
+      - ./application:/var/www/html
+
+  db:
+    image: mysql:8.0
+    ports:
+      - 13306:3306
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: framework_db
