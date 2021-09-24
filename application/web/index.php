@@ -3,7 +3,7 @@
 require '../bootstrap.php';
 require '../MiniBlogApplication.php';
 
-$app = new MiniBlogApplication(true);
+$app = new MiniBlogApplication(true, dirname(__DIR__));
 $app->run();
 
 

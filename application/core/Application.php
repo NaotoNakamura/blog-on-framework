@@ -7,12 +7,14 @@ abstract class Application {
   protected $session;
   protected $db_manager;
   protected $login_action = array();
+  protected $rootDir;
 
-  public function __construct($debug = false)
+  public function __construct($debug = false, $basePath = null)
   {
     $this->setDebugMode($debug);
     $this->initialize();
     $this->configure();
+    $this->rootDir = $basePath;
   }
 
   protected function setDebugMode($debug)
@@ -42,7 +44,10 @@ abstract class Application {
 
   }
 
-  abstract public function getRootDir();
+  public function getRootDir()
+  {
+    return $this->rootDir;
+  }
 
   // 継承先でルーティング定義配列を設定
   abstract protected function registerRoutes();
