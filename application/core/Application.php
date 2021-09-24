@@ -9,10 +9,10 @@ abstract class Application {
   protected $login_action = array();
   protected $rootDir;
 
-  public function __construct($debug = false, $basePath = null)
+  public function __construct($debug = false, $basePath = null, $routes = array())
   {
     $this->setDebugMode($debug);
-    $this->initialize();
+    $this->initialize($routes);
     $this->configure();
     $this->rootDir = $basePath;
   }
@@ -29,13 +29,13 @@ abstract class Application {
     }
   }
 
-  protected function initialize()
+  protected function initialize($routes)
   {
     $this->request = new Request();
     $this->response = new Response();
     $this->session = new Session();
     $this->db_manager = new DbManager();
-    $this->router = new Router($this->registerRoutes());
+    $this->router = new Router($routes);
   }
 
   // 継承先でDB接続
@@ -43,9 +43,6 @@ abstract class Application {
   {
 
   }
-
-  // 継承先でルーティング定義配列を設定
-  abstract protected function registerRoutes();
 
   public function isDebugMode()
   {

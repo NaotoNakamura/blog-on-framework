@@ -2,8 +2,9 @@
 
 require '../bootstrap.php';
 require '../MiniBlogApplication.php';
+$routes = require '../routes/routes.php';
 
-$app = new MiniBlogApplication(true, dirname(__DIR__));
+$app = new MiniBlogApplication(true, dirname(__DIR__), $routes);
 $app->run();
 
 
