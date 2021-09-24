@@ -19,7 +19,10 @@ services:
     ports:
       - 13306:3306
     volumes:
-      - ./mysql:/var/lib/mysql
+      - db-store:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: secret
       MYSQL_DATABASE: framework_db
+
+volumes:
+  db-store:
