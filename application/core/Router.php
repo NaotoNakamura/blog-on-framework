@@ -23,9 +23,9 @@ class Router
       // ルーティング定義のキー（URL部分）を「/」ごとに分割
       $tokens = explode('/', ltrim($url, '/'));
       foreach ($tokens as $i => $token) {
-        // 「:」が存在したら
+        // 「:」が存在したら正規表現の値に置き換え
         if (0 === strpos($token, ':')) {
-          // 「:」を取り除く
+          // 1文字目の「:」を取り除く
           $name = substr($token, 1);
           $token = '(?P<' . $name . '>[^/]+)';
         }
@@ -93,5 +93,31 @@ array(4) {
   [1]=>
   string(1) "1"
 }
+
+
+# 処理の流れ
+
+## ルーティングの一例
+
+["/account/:action"]=>
+  array(1) {
+    ["controller"]=>
+    string(7) "account"
+}
+
+## キーの中身を「/」で分割
+
+array(2) {
+  [0]=>
+  string(7) "account"
+  [1]=>
+  string(7) ":action"
+}
+
+## 分割した値に「:」があれば取り除いた上で正規表現に置き換える
+
+:actionのような値を「(?P[^/]+)」として置換
+
+## 分割した値を再度「/」でつなげ、$routesのキーにセット（値はルーティングの値をそのまま代入）
 
 */
