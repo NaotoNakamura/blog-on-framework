@@ -79,7 +79,7 @@ abstract class Application {
     return $this->rootDir . '/views';
   }
 
-  public function getModeDir()
+  public function getModelDir()
   {
     return $this->rootDir . '/models';
   }
