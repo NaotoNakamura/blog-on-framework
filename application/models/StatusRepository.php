@@ -1,5 +1,7 @@
 <?php
 
+use core\DbRepository;
+
 class StatusRepository extends DbRepository
 {
   public function insert($user_id, $body)

@@ -1,5 +1,7 @@
 <?php
 
+use core\Controller;
+
 class StatusController extends Controller
 {
   protected $auth_actions = array('index', 'post');

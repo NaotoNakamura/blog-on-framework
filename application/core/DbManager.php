@@ -1,4 +1,9 @@
 <?php
+
+namespace core;
+use PDO;
+use PDOException;
+
 class DbManager
 {
   protected $connections = array();

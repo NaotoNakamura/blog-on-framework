@@ -1,5 +1,7 @@
 <?php
 
+use core\Controller;
+
 class AccountController extends Controller
 {
   protected $auth_actions = array('index', 'signout');

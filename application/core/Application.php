@@ -1,5 +1,8 @@
 <?php
 
+namespace core;
+use core\Request;
+
 abstract class Application {
   protected $debug = false;
   protected $request;

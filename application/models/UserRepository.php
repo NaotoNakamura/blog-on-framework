@@ -1,5 +1,7 @@
 <?php
 
+use core\DbRepository;
+
 class UserRepository extends DbRepository
 {
   public function insert($user_name, $password)

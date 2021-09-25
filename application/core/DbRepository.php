@@ -1,5 +1,8 @@
 <?php
 
+namespace core;
+use PDO;
+
 abstract class DbRepository
 {
   protected $con;

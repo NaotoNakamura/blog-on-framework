@@ -1,6 +1,6 @@
 <?php
 
-require '../bootstrap.php';
+require_once "../vendor/autoload.php";
 require '../MiniBlogApplication.php';
 $routes = require '../routes/routes.php';
 
@@ -17,7 +17,7 @@ $app->run();
 - Response
 - Session
 - DbManager
-- Router（コンストラクタ引数にMiniBlogApplicationで定義したルーティング配列を受け取る）
+- Router（コンストラクタ引数にルーティング配列を受け取る）
 
 3. Applicationクラスのrunメソッドを実行
 

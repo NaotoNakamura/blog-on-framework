@@ -1,5 +1,7 @@
 <?php
 
+namespace core;
+
 class View {
   protected $base_dir;
   protected $defaults;
