@@ -1,6 +1,8 @@
 <?php
 
+namespace models;
 use core\DbRepository;
+use DateTime;
 
 class StatusRepository extends DbRepository
 {
