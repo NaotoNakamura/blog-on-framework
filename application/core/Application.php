@@ -41,10 +41,13 @@ abstract class Application {
     $this->router = new Router($routes);
   }
 
-  // 継承先でDB接続
-  protected function configure()
+  public function configure()
   {
-
+    $this->db_manager->connect('master', array(
+      'dsn' => 'mysql:dbname=framework_db;host=db',
+      'user' => 'root',
+      'password' => 'secret',
+    ));
   }
 
   public function isDebugMode()
