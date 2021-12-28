@@ -9,10 +9,12 @@ abstract class Application {
   protected $response;
   protected $session;
   protected $db_manager;
+
+  // 認証が必要な場合の遷移先
   protected $login_action = array();
   protected $rootDir;
 
-  public function __construct($debug = false, $basePath = null, $routes = array())
+  public function __construct($debug = false, $basePath = null, $routes = null)
   {
     $this->setDebugMode($debug);
     $this->initialize($routes);
@@ -38,7 +40,8 @@ abstract class Application {
     $this->response = new Response();
     $this->session = new Session();
     $this->db_manager = new DbManager();
-    $this->router = new Router($routes);
+    $this->router = new Router($routes->fetchRoutes());
+    $this->login_action = $routes->login_action;
   }
 
   public function configure()
