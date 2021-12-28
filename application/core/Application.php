@@ -3,7 +3,7 @@
 namespace core;
 use core\Request;
 
-abstract class Application {
+class Application {
   protected $debug = false;
   protected $request;
   protected $response;

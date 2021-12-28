@@ -1,7 +1,8 @@
 <?php 
 
-class Routes {
+namespace routes;
 
+class Routes {
 
   public $login_action = array('account', 'signin');
 
